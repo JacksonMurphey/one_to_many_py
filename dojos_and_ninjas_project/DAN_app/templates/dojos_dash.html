@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title%}Dojos Dashboard{% endblock %}
+{% block content %}
+
+<div class="container">
+    <dir class="row">
+        <div class="col">
+            <h2>New Dojo</h2>
+            <form action="/dojos/create" method="POST" class="m-1">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" class="form-control">
+                </div>
+                <input type="submit" name="" id="" value="Create" class="btn btn-success m-1">
+            </form>
+        </div>
+        <div class="col">
+
+            <h2>All Dojos</h2>
+            <ul class="list-group">
+                {% for dojo in dojos %}
+                <li class="list-group-item"><a href="/dojos/{{dojo.id}}">{{dojo.name}}</a></li>
+                {% endfor %}
+            </ul>
+            <a href="/ninjas" class="btn btn-primary m-1">Add Ninja</a>
+
+        </div>
+</div>
+
+
+
+{% endblock %}
